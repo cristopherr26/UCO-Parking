@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.inputport.AddVehicleInputPort;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.inputport.dto.AddVehicleDTO;
+import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.mapper.AddVehicleMapper;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.AddVehicleUseCase;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.AddVehicleDomain;
 
@@ -13,14 +14,16 @@ import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.dom
 public class AddVehicleInteractor implements AddVehicleInputPort {
 
 	private AddVehicleUseCase useCase;
+	private AddVehicleMapper mapper;
 	
-	public AddVehicleInteractor(AddVehicleUseCase useCase) {
+	public AddVehicleInteractor(AddVehicleUseCase useCase, AddVehicleMapper mapper) {
 		this.useCase = useCase;
+		this.mapper = mapper;
 	}
 	
 	@Override
 	public Void execute(AddVehicleDTO data) {
-		AddVehicleDomain domain = null; //mapper de dto a domain
+		AddVehicleDomain domain = mapper.toAddVehicleDomain(data); //mapper de dto a domain
 		return useCase.execute(domain);
 	}
 
