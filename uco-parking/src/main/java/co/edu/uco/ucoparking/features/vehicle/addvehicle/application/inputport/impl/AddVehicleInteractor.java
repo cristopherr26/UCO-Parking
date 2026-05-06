@@ -23,7 +23,7 @@ public class AddVehicleInteractor implements AddVehicleInputPort {
 	
 	@Override
 	public Void execute(AddVehicleDTO data) {
-		AddVehicleDomain domain = mapper.toAddVehicleDomain(data); //mapper de dto a domain
+		AddVehicleDomain domain = mapper.toDomain(data); //mapper de dto a domain
 		return useCase.execute(domain);
 	}
 

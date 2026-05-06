@@ -1,0 +1,1 @@
+package co.edu.uco.ucoparking.crosscutting.specification.generics;

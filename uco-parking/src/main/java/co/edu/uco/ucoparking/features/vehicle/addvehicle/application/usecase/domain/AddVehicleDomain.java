@@ -2,9 +2,9 @@ package co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.do
 
 import java.util.UUID;
 
-import co.edu.uco.ucoparking.crosscuting.specification.base.Specification;
 import co.edu.uco.ucoparking.crosscutting.exception.UcoParkingException;
 import co.edu.uco.ucoparking.crosscutting.messagescatalog.MessagesEnum;
+import co.edu.uco.ucoparking.crosscutting.specification.base.Specification;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.specification.VehiclePlateDataTypeSpecification;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.specification.VehiclePlateFormatSpecification;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.specification.VehiclePlateIsMandatorySpecification;

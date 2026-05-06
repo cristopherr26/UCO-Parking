@@ -1,4 +1,4 @@
-package co.edu.uco.ucoparking.crosscuting.specification.base;
+package co.edu.uco.ucoparking.crosscutting.specification.base;
 
 public final class OrSpecification <T> extends Specification<T>{
 	Specification<T> left;
