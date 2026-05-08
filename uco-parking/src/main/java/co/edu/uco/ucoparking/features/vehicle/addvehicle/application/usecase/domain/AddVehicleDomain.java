@@ -2,13 +2,7 @@ package co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.do
 
 import java.util.UUID;
 
-import co.edu.uco.ucoparking.crosscutting.exception.UcoParkingException;
-import co.edu.uco.ucoparking.crosscutting.messagescatalog.MessagesEnum;
-import co.edu.uco.ucoparking.crosscutting.specification.base.Specification;
-import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.specification.VehiclePlateDataTypeSpecification;
-import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.specification.VehiclePlateFormatSpecification;
-import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.specification.VehiclePlateIsMandatorySpecification;
-import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.specification.VehiclePlateLengthSpecification;
+import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.validator.ValidateVehiclePlate;
 
 public class AddVehicleDomain {
 	
@@ -42,16 +36,7 @@ public class AddVehicleDomain {
 	}
 	
 	private void setPlate(final String plate) {
-		Specification<String> plateRules= new VehiclePlateDataTypeSpecification()
-				.and(new VehiclePlateFormatSpecification())
-				.and(new VehiclePlateIsMandatorySpecification())
-				.and(new VehiclePlateLengthSpecification());
-		
-		if (!plateRules.isSatisfiedBy(plate)) {
-			var userMessage = MessagesEnum.USER_ERROR_TRYING_TO_ADD_NEW_VEHICLE.getContent();
-			var technicalMessage = MessagesEnum.TECHNICAL_ERROR_TRYING_TO_ADD_NEW_VEHICLE.getContent();
-			throw UcoParkingException.create(userMessage, technicalMessage);
-	    }
+		ValidateVehiclePlate.executeValidation(plate);
 		this.plate = plate;
 	}
 	

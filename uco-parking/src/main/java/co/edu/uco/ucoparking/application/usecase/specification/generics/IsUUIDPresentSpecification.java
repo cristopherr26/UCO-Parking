@@ -1,4 +1,4 @@
-package co.edu.uco.ucoparking.crosscutting.specification.generics;
+package co.edu.uco.ucoparking.application.usecase.specification.generics;
 
 import java.util.UUID;
 
