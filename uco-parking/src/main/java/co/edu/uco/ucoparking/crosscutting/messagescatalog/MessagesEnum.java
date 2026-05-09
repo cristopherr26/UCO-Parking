@@ -22,8 +22,8 @@ public enum MessagesEnum {
 	USER_ERROR_INCOMPLETE_PARAMETERS("No se enviaron todos los datos necesarios", "El dato es necesario para llevar a cabo la operación: "),
 	TECHNICAL_ERROR_INCOMPLETE_PARAMETERS("No se enviaron todos los datos necesarios", "La regla StringValueIsPresent falló porque el siguiente dato requerido para llevar a cabo la operación está vacío: "),
 	TECHNICAL_ERROR_UUID_IS_DEFAULT("UUID por defecto", "La operacion no pudo ser llevada a cabo, ya que en el el siguiente dato fue ingresado el uuid por defecto: "),
-	TECHNICAL_ERROR_PLATE_IS_NOT_PRESENT("No se pasaron datos para validar la placa", "El valor de la placa llegó nulo, por lo que no se puede continuar");
-
+	TECHNICAL_ERROR_PLATE_IS_NOT_PRESENT("No se pasaron datos para validar la placa", "El valor de la placa llegó nulo, por lo que no se puede continuar"),
+	VEHICLE_SUCESSFULLY_REGISTERED("Éxito vehículo creado", "El vehículo se ha registrado correctamente en el sistema.");
 
 	private String title;
 	private String content;
